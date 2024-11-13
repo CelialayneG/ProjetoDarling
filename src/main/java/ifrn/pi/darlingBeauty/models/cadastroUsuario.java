@@ -3,7 +3,7 @@ package ifrn.pi.darlingBeauty.models;
 import jakarta.persistence.Entity;
 
 @Entity
-public class cadastroUsuario {
+public class CadastroUsuario {
 
 	private String cpf;
 	private String nome;
