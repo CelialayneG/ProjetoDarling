@@ -1,14 +1,16 @@
 package ifrn.pi.darlingBeauty.models;
 
-<<<<<<< HEAD:src/main/java/ifrn/pi/darlingBeauty/models/cadastroUsuario.java
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class CadastroUsuario {
-=======
 public class Usuarios {
->>>>>>> 373d3503946d53702bd0e7a260e0370ee5b749c7:src/main/java/ifrn/pi/darlingBeauty/models/Usuarios.java
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String cpf;
 	private String nome;
 	private String email;
@@ -16,6 +18,14 @@ public class Usuarios {
 	private String endereco;
 	private String senha;
 
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -62,6 +72,12 @@ public class Usuarios {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuarios [id=" + id + ", cpf=" + cpf + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone
+				+ ", endereco=" + endereco + ", senha=" + senha + "]";
 	}
 
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div th:replace="~{home :: menu}"></div>
+	<div class="row">
+		<div class="container s12 m4 l8">
+			<div class="card">
+				<div class="card-action white-text center purple darken-1">
+					<h3>Login</h3>
+				</div>
+				<div class="card-content">
+					<div class="form-field">
+						<label>Email:</label> <input type="text"></input>
+					</div>
+					<div class="form-field">
+					<label>Senha:</label> <input type="text"></input>
+						<div class="form-field">
+							<button class="btn-large waves-effect waves-dark purple darken-1" style="width: 100%;">Login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
