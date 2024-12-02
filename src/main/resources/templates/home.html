@@ -7,12 +7,23 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>Darling Beauty</title>
 <style>
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: -120px;
+	margin-top: -20px;
+}
+
+.botao-home{
+	margin-top: 0px;
+	margin-right: 50px;
+}
 </style>
 </head>
 <body>
 	<nav th:fragment="menu" class="purple darken-2" role="navigation">
 		<div class="nav-wrapper container">
-			<a href="/" class="brand-logo">DarlingBeauty</a>
+			<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a th:href="@{/darlingBeauty/login}">Login</a></li>
 				<li><a th:href="@{/darlingBeauty/cadastroUsuario}">Cadastrar-se</a></li>
@@ -86,6 +97,7 @@
 					<ul>
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/login}">Login</a></li>
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/cadastroUsuario}">Cadastrar-se</a></li>
+						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/servicos}">Serviços</a></li>
 						<li><a class="grey-text text-lighten-3" href="https://www.instagram.com/daarlingbeauty/">Instagram</a></li>
 					</ul>
 				</div>

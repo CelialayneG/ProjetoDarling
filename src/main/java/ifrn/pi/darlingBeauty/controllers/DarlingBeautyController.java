@@ -10,31 +10,33 @@ import ifrn.pi.darlingBeauty.models.Usuarios;
 import ifrn.pi.darlingBeauty.repositories.UsuariosRepository;
 
 @Controller
+@RequestMapping("/darlingBeauty")
 public class DarlingBeautyController {
 	
 	@Autowired
 	private UsuariosRepository ur;
 
-	@GetMapping("/darlingBeauty/cadastroUsuario")
+	@GetMapping("/cadastroUsuario")
 	public String cadastroUsuario() {
 		return "cadastro-usuario";
 	}
 	
-	@PostMapping("/darlingBeauty")
+	@PostMapping("/login")
 	public String adicionar(Usuarios usuarios) {
 		System.out.println(usuarios);
 		ur.save(usuarios);
-		return "cadastro-adicionado";
+		return "home";
 	
 	}
 	
-	@RequestMapping("/darlingBeauty/agendar-servico")
+	@RequestMapping("/agendar-servico")
 	public String agendar() {
 		return "agendar-servico";
 	}
 	
-	@GetMapping("darlingBeauty/login")
-	public String loginUsuario() {
-		return "login";
+
+	@GetMapping("/menu")
+	public String acessar() {
+		return "menu";
 	}
 }

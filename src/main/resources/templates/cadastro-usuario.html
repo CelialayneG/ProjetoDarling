@@ -10,11 +10,21 @@
 body{
 background-color: #8e24aa;
 }
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: -120px;
+	margin-top: -20px;
+}
 
+.botao-home{
+	margin-top: 0px;
+	margin-right: 50px;
+}
 
 </style>
 <body>
-	<div th:replace="~{home :: menu}"></div>
+	<div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
 	<div class="row center-aligin">
 		<div class="container s12 m4 l8">
 			<div class="card">
@@ -62,6 +72,7 @@ background-color: #8e24aa;
 					<ul>
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/login}">Login</a></li>
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/cadastroUsuario}">Cadastrar-se</a></li>
+						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/servicos}">Serviços</a></li>
 						<li><a class="grey-text text-lighten-3" href="https://www.instagram.com/daarlingbeauty/">Instagram</a></li>
 					</ul>
 				</div>

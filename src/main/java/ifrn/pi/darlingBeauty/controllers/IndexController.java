@@ -11,4 +11,14 @@ public class IndexController {
 		System.out.println("Chamou o método index");
 		return "home";
 	}
+	
+	@RequestMapping("/darlingBeauty/servicos")
+	public String servicos() {
+		return "servicos";
+	}
+	
+	@RequestMapping("/darlingBeuty/agendar-servico")
+	public String agendamentos() {
+		return "agendamento";
+	}
 }

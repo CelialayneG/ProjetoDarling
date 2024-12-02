@@ -6,8 +6,106 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <title>Darling Beauty</title>
+<style>
+body {
+	background-color: #8e24aa;
+}
+
+.card-box {
+	background-color: #f3e5f5;
+	border-radius: 8px;
+	padding: 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	max-width: 700px;
+	margin: 0 auto;
+	font-family: 'Roboto', sans-serif;
+}
+
+.card-box label {
+	color: #000000;
+}
+
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: -120px;
+	margin-top: -20px;
+}
+
+</style>
 </head>
 <body>
+	<nav th:fragment="menu" class="purple darken-2" role="navigation">
 
+		<div class="nav-wrapper container">
+
+			<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
+
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+
+				<li><a href="/">Home</a></li>
+
+			</ul>
+
+		</div>
+
+	</nav>
+
+	<br>
+
+	<br>
+
+	<div class="container">
+
+		<div class="card-box">
+
+			<h4 class="center">AGENDAMENTO</h4>
+
+			<br>
+
+			<form th:action="@{/agendar-servico}" th:method="post">
+
+				<div class="input-field">
+
+					<input id="data" type="date" name="data" required> <label
+						for="data">Data</label>
+
+				</div>
+
+				<div class="input-field">
+
+					<input id="horario" type="time" name="horario" required> <label
+						for="horario">Horário</label>
+
+				</div>
+
+				<div class="input-field">
+
+					<input id="name" type="text" name="obs" required> <label
+						for="obs">Observações:</label>
+
+				</div>
+
+				<button class="btn waves-effect purple darken-3" type="submit">Agendar</button>
+
+			</form>
+
+		</div>
+
+	</div>
+	
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+
+			var elems = document.querySelectorAll('select');
+
+			var instances = M.FormSelect.init(elems);
+
+		});
+	</script>
 </body>
 </html>

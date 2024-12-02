@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<style>
+body {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.card-title {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #9c27b0;
+	border-radius: 5px;
+	font-size: 18px;
+	width: auto;
+}
+
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: 40px;
+	margin-top: -20px;
+}
+
+.botao-home{
+	margin-top: 0px;
+	margin-right: 50px;
+}
+</style>
+<body style="background-color: #8e24aa">
+	<nav th:fragment="menu" class="purple darken-2" role="navigation">
+	
+			<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
+
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/" class="botao-home">Home</a></li>
+			</ul>
+	
+	</nav>
+
+
+	<div class="row">
+		<div class="col s3 m3">
+			<div class="card">
+				<div class="card-image">
+					<img src="/corteCabelo.png"> <span class="card-title">Corte
+						de cabelo</span>
+				</div>
+				<div class="card-content">
+					<p>Um corte de cabelo de alta qualidade com atendimento
+						personalizado para realçar o seu estilo e garantir sua satisfação!
+						Valor:R$60,00</p>
+				</div>
+				<div class="card-action center purple lighten-4">
+					<a href="/darlingBeauty/agendar-servico"
+						class="purple-text text-darken-2">Agendar</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card">
+				<div class="card-image">
+					<img src="/escova.jpg"> <span class="card-title">Escova
+						modeladora</span>
+				</div>
+				<div class="card-content">
+					<p>A escova modeladora proporciona fios definidos e com brilho,
+						com um atendimento ágil e cuidado especial para cada tipo de
+						cabelo. Valor:R$50,00</p>
+				</div>
+				<div class="card-action center purple lighten-4">
+					<a href="/darlingBeauty/agendar-servico"
+						class="purple-text text-darken-2">Agendar</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card">
+				<div class="card-image">
+					<img src="/unhas.jfif"> <span class="card-title">Esmaltação
+						de unhas</span>
+				</div>
+				<div class="card-content">
+					<p>O atendimento é rápido, profissional e personalizado,
+						garantindo unhas impecáveis com qualidade e cuidado. Valor:R$40,00</p>
+				</div>
+				<div class="card-action center purple lighten-4">
+					<a href="/darlingBeauty/agendar-servico"
+						class="purple-text text-darken-2">Agendar</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card">
+				<div class="card-image">
+					<img src="/maquiagem.jpg"> <span class="card-title">Maquiagem</span>
+				</div>
+				<div class="card-content">
+					<p>A maquiagem profissional realça sua beleza com técnica
+						apurada, garantindo um resultado impecável e duradouro para
+						qualquer ocasião. Valor:R$70,00</p>
+				</div>
+				<div class="card-action center purple lighten-4">
+					<a href="/darlingBeauty/agendar-servico"
+						class="purple-text text-darken-2">Agendar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
