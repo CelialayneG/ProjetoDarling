@@ -1,126 +1,349 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<style>
-body {
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-}
 
-.card-title {
-	display: inline-block;
-	padding: 5px 10px;
-	background-color: #9c27b0;
-	border-radius: 5px;
-	font-size: 18px;
-	width: auto;
-}
+    <meta charset="UTF-8">
 
-.logo {
+    <!-- Compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            background-image: url('/salaoDeBeleza.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+
+
+        .card {
+
+            border-radius: 10px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+            overflow: hidden;
+
+            height: 100%;
+
+        }
+
+
+
+        .card-title {
+
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            background-color: rgba(156, 39, 176, 0.8);
+
+            border-radius: 5px;
+
+            font-size: 18px;
+
+            color: #fff;
+
+            margin-top: -50px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+
+        .card img {
+
+            height: 200px;
+
+            object-fit: cover;
+
+            border-top-left-radius: 10px;
+
+            border-top-right-radius: 10px;
+
+        }
+
+
+
+        .card-content {
+
+            text-align: center;
+
+            padding: 15px;
+
+            min-height: 140px; /* Alinhando altura dos cards */
+
+        }
+
+
+
+        .row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 20px;
+
+        }
+
+
+
+        .center-button {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 50px;
+
+            margin-bottom: 50px;
+
+        }
+
+
+
+        .btn-large {
+
+            padding: 15px 50px;
+
+            font-size: 20px;
+
+            background-color: #7b1fa2;
+
+            color: #fff;
+
+            border-radius: 25px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-transform: uppercase;
+
+            transition: background-color 0.3s, transform 0.3s;
+
+        }
+
+
+
+        .btn-large:hover {
+
+            background-color: #9c27b0;
+
+            transform: scale(1.05);
+
+        }
+        .logo {
+
 	width: 100px;
+
 	margin: auto;
-	margin-left: 40px;
+
+	margin-left: -120px;
+
 	margin-top: -20px;
+
 }
 
-.botao-home{
-	margin-top: 0px;
-	margin-right: 50px;
-}
-</style>
-<body style="background-color: #8e24aa">
-	<nav th:fragment="menu" class="purple darken-2" role="navigation">
-	
-			<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
 
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="/" class="botao-home">Home</a></li>
-			</ul>
-	
-	</nav>
+    </style>
+
+</head>
+
+<body>
+<div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
+
+    <div class="container">
+
+        <!-- serviços -->
+
+        <div class="row">
+
+            <div class="col s12 m6 l3">
+
+                <div class="card">
+
+                    <div class="card-image">
+
+                        <img src="/corteCabelo.png" alt="Corte de cabelo">
+
+                        <span class="card-title">Corte de cabelo</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>Um corte de cabelo de alta qualidade com atendimento personalizado para realçar o seu estilo e garantir sua satisfação! Valor: R$60,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
-	<div class="row">
-		<div class="col s3 m3">
-			<div class="card">
-				<div class="card-image">
-					<img src="/corteCabelo.png"> <span class="card-title">Corte
-						de cabelo</span>
-				</div>
-				<div class="card-content">
-					<p>Um corte de cabelo de alta qualidade com atendimento
-						personalizado para realçar o seu estilo e garantir sua satisfação!
-						Valor:R$60,00</p>
-				</div>
-				<div class="card-action center purple lighten-4">
-					<a href="/darlingBeauty/agendar-servico"
-						class="purple-text text-darken-2">Agendar</a>
-				</div>
-			</div>
-		</div>
 
-		<div class="col s3 m3">
-			<div class="card">
-				<div class="card-image">
-					<img src="/escova.jpg"> <span class="card-title">Escova
-						modeladora</span>
-				</div>
-				<div class="card-content">
-					<p>A escova modeladora proporciona fios definidos e com brilho,
-						com um atendimento ágil e cuidado especial para cada tipo de
-						cabelo. Valor:R$50,00</p>
-				</div>
-				<div class="card-action center purple lighten-4">
-					<a href="/darlingBeauty/agendar-servico"
-						class="purple-text text-darken-2">Agendar</a>
-				</div>
-			</div>
-		</div>
+            <div class="col s12 m6 l3">
 
-		<div class="col s3 m3">
-			<div class="card">
-				<div class="card-image">
-					<img src="/unhas.jfif"> <span class="card-title">Esmaltação
-						de unhas</span>
-				</div>
-				<div class="card-content">
-					<p>O atendimento é rápido, profissional e personalizado,
-						garantindo unhas impecáveis com qualidade e cuidado. Valor:R$40,00</p>
-				</div>
-				<div class="card-action center purple lighten-4">
-					<a href="/darlingBeauty/agendar-servico"
-						class="purple-text text-darken-2">Agendar</a>
-				</div>
-			</div>
-		</div>
+                <div class="card">
 
-		<div class="col s3 m3">
-			<div class="card">
-				<div class="card-image">
-					<img src="/maquiagem.jpg"> <span class="card-title">Maquiagem</span>
-				</div>
-				<div class="card-content">
-					<p>A maquiagem profissional realça sua beleza com técnica
-						apurada, garantindo um resultado impecável e duradouro para
-						qualquer ocasião. Valor:R$70,00</p>
-				</div>
-				<div class="card-action center purple lighten-4">
-					<a href="/darlingBeauty/agendar-servico"
-						class="purple-text text-darken-2">Agendar</a>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <div class="card-image">
 
+                        <img src="/escova.jpg" alt="Escova modeladora">
+
+                        <span class="card-title">Escova modeladora</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>A escova modeladora proporciona fios definidos e com brilho, com um atendimento ágil e cuidado especial para cada tipo de cabelo. Valor: R$50,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col s12 m6 l3">
+
+                <div class="card">
+
+                    <div class="card-image">
+
+                        <img src="/unhas.jfif" alt="Esmaltação de unhas">
+
+                        <span class="card-title">Esmaltação de unhas</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>O atendimento é rápido, profissional e personalizado, garantindo unhas impecáveis com qualidade e cuidado. Valor: R$40,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col s12 m6 l3">
+
+                <div class="card">
+
+                    <div class="card-image">
+
+                        <img src="/maquiagem.jpg" alt="Maquiagem">
+
+                        <span class="card-title">Maquiagem</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>A maquiagem profissional realça sua beleza com técnica apurada, garantindo um resultado impecável e duradouro para qualquer ocasião. Valor: R$70,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+                        <div class="col s12 m6 l3">
+
+                <div class="card">
+
+                    <div class="card-image">
+
+                        <img src="/depilacao.png" alt="Depilação">
+
+                        <span class="card-title">Depilação</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>Experimente uma depilação suave e eficaz, realizada com produtos de alta qualidade para garantir sua pele lisa e livre de irritações. Atendimento profissional e personalizado. Valor: R$40,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+                        <div class="col s12 m6 l3">
+
+                <div class="card">
+
+                    <div class="card-image">
+
+                        <img src="/design-de-sobrancelha.png" alt="Sobrancelhas">
+
+                        <span class="card-title">Sobrancelhas</span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <p>Realce a beleza do seu olhar com um design de sobrancelhas impecável, adaptado ao formato do seu rosto. Técnica apurada para resultados naturais e harmoniosos. Valor: R$30,00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+        </div>
+
+        
+
+       
+
+        <div class="center-button">
+
+            <a href="/agendamento" class="btn-large waves-effect waves-light">Agendar</a>
+
+        </div>
+
+    </div>
 
 </body>
 
 </html>
+

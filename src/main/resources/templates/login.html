@@ -1,73 +1,149 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Login</title>
+
 <link rel="stylesheet"
+
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
+
 <style>
+
 body{
+
 background-color: #8e24aa;
-}
-.logo {
-	width: 100px;
-	margin: auto;
-	margin-left: -120px;
-	margin-top: -20px;
+
 }
 
-.botao-home{
-	margin-top: 0px;
-	margin-right: 50px;
+.logo {
+
+	width: 100px;
+
+	margin: auto;
+
+	margin-left: -120px;
+
+	margin-top: -20px;
+
 }
+
+
+
+.botao-home{
+
+	margin-top: 0px;
+
+	margin-right: 50px;
+
+}
+
 </style>
+
 <body>
+
 <div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
+
+<form th:action="@{/login}" method="post">
+
 	<div class="row">
+
 		<div class="container s12 m4 l8">
+
 			<div class="card">
+
 				<div class="card-action white-text center purple darken-1">
+
 					<h3>Login</h3>
+
 				</div>
+
 				<div class="card-content">
+
 					<div class="form-field">
-						<label>Email:</label> <input type="text"></input>
+
+						<label for="username">Email:</label> <input class="validate" type="text" name="username" id="username">
+
 					</div>
+
 					<div class="form-field">
-					<label>Senha:</label> <input type="password"></input>
+
+					<label for="password">Senha:</label> <input class="validate" type="password" name="password" id="password"></input>
+
 						<div class="form-field">
-							<button class="btn-large waves-effect waves-dark purple darken-1" style="width: 100%;">Login</button>
+
+							<button class="btn-large waves-effect waves-dark purple darken-1" style="width: 100%;" type="submit">Login</button>
+
 						</div>
+
 					</div>
+
 				</div>
+
 			</div>
+
 		</div>
+
 	</div>
+
+</form>
+
 	
+
 	<footer class="page-footer purple darken-2">
+
 		<div class="container">
+
 			<div class="row">
+
 				<div class="col l6 s12">
+
 					<h5 class="white-text" style="color: #ffffff">Darling Beauty</h5>
+
 					<p class="grey-text text-lighten-4" style="color: #ffffff">Realce sua Beleza, Revele sua Confiança!</p>
+
 				</div>
+
 				<div class="col l4 offset-l2 s12">
+
 					<h5 class="white-text">Links</h5>
+
 					<ul>
+
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/login}">Login</a></li>
+
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/cadastroUsuario}">Cadastrar-se</a></li>
+
 						<li><a class="grey-text text-lighten-3" th:href="@{/darlingBeauty/servicos}">Serviços</a></li>
+
 						<li><a class="grey-text text-lighten-3" href="https://www.instagram.com/daarlingbeauty/">Instagram</a></li>
+
 					</ul>
+
 				</div>
+
 			</div>
+
 		</div>
+
 		<div class="footer-copyright">
+
 			<div class="container">
+
 				© 2024 DarlingBeauty
+
 			</div>
+
 		</div>
+
 	</footer>
+
 </body>
+
 </html>

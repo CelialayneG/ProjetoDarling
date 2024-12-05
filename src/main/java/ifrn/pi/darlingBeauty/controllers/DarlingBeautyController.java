@@ -15,13 +15,14 @@ public class DarlingBeautyController {
 	
 	@Autowired
 	private UsuariosRepository ur;
-
+	
+		
 	@GetMapping("/cadastroUsuario")
 	public String cadastroUsuario() {
 		return "cadastro-usuario";
 	}
 	
-	@PostMapping("/login")
+
 	public String adicionar(Usuarios usuarios) {
 		System.out.println(usuarios);
 		ur.save(usuarios);
@@ -34,9 +35,13 @@ public class DarlingBeautyController {
 		return "agendar-servico";
 	}
 	
-
-	@GetMapping("/menu")
-	public String acessar() {
-		return "menu";
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "logout";
 	}
 }
