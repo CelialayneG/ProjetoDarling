@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Eventos</title>
+
+<!-- Compiled and minified CSS -->
+
+<link rel="stylesheet"
+
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+
+	rel="stylesheet">
+
+</head>
+<style>
+
+.logo {
+
+	width: 100px;
+
+	margin: auto;
+
+	margin-left: -120px;
+
+	margin-top: -20px;
+
+}
+
+.botao-home{
+
+	margin-top: 0px;
+
+	margin-right: 50px;
+
+}
+</style>
+
+<body>
+
+
+
+ <div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
+
+      
+
+
+
+
+
+	<div class="container">
+
+
+
+
+
+		<h1>Lista de Agendamentos</h1>
+
+
+
+		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+
+		<table class="highlight">
+
+
+
+			<thead>
+
+				<tr>
+
+					<th>Id</th>
+
+					<th>Data</th>
+					
+					<th>Serviço</th>
+
+					<th>Horário</th>
+
+					<th>Observações</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr th:each="ar : ${agendamento}">
+
+					<td th:text="${ar.id}">1</td>
+
+					<td th:text="${#temporals.format(ar.data)}">28/11/2024</td>
+					
+					<td th:text="${ar.servico.nome}">Escova</td>
+
+					<td th:text="${ar.horario}">20:00</td>
+					
+					<td th:text="${ar.obs}">deu certo</td>
+
+					<td>
+					
+					<a th:href="@{/agendamento/{id}/selecionar(id=${ar.id})}"> <i class="material-icons">edit</i></a> 
+
+					<a th:href="@{/agendamento/{id}/remover(id=${ar.id})}"> <i class="material-icons">delete</i></a>
+
+					</td>
+
+
+
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+
+</body>
+
+</html>

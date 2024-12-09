@@ -19,6 +19,7 @@ public class Agendamento {
 	private LocalTime horario;
 	private String obs;
 	
+	
 	public Long getId() {
 		return id;
 	}
