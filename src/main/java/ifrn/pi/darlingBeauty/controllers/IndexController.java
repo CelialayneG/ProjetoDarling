@@ -43,8 +43,7 @@ public class IndexController {
 		return "agendamento";
 	}
 	
-	@RequestMapping("/agendamento")
-
+	@GetMapping("/agendamento")
 	public ModelAndView agendamento() {
 	    List<Servico> servicos = sr.findAll();
 	    ModelAndView mv = new ModelAndView("agendar-servico");
@@ -57,7 +56,7 @@ public class IndexController {
 	public String salvarAgendamento(Agendamento agendamento, RedirectAttributes attributes) {
 		ar.save(agendamento);
 		attributes.addFlashAttribute("mensagem", "Agendado com sucesso!");
-		return "redirect:/agendar-servico";
+		return "redirect:/agendamento";
 
 	}
 	
@@ -70,28 +69,22 @@ public class IndexController {
 
 	}
 	
-	/* @GetMapping("/{id}")
-	public detalhar(@PathVariable Long id) {
-		ModelAndView md = new ModelAndView();
-		Optional<Agendamento> opt = ar.findById(id);
-		if(opt.isEmpty()) {
-			md.setViewName("redirect:/darlingBeauty/lista");
-			return md;
-		}
-		md.setViewName("agendamento/detalhes"); 
-		
-		}
-		*/	
-	@GetMapping("/remover")
-	public String apagarAgendamento(@PathVariable Long id) {
-		Optional<Agendamento> opt = ar.findById(id);
-		if(!opt.isEmpty()) {
-			Agendamento agendamento = opt.get();
-			ar.delete(agendamento);
-		}
-		return "redirect:/darlingBeauty/lista";
+	
+	@GetMapping("/darlingBeauty/lista/{id}/remover")
+	public String apagarAgendamento(@PathVariable Long id, RedirectAttributes attributes) {
+	    Optional<Agendamento> opt = ar.findById(id);
+	    if (opt.isPresent()) {
+	        ar.delete(opt.get());
+	        attributes.addFlashAttribute("mensagem", "Agendamento removido com sucesso!");
+	    } else {
+	        attributes.addFlashAttribute("erro", "Agendamento não encontrado!");
+	    }
+	    return "redirect:/darlingBeauty/lista";
 	}
 	
-
+	
+	
+	
+	
 
 }

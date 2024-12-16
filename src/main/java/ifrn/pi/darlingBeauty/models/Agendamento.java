@@ -2,6 +2,9 @@ package ifrn.pi.darlingBeauty.models;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +18,9 @@ public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
 	private LocalDate data;
+	@NotNull
 	private LocalTime horario;
 	private String obs;
 	

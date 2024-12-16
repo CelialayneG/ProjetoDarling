@@ -11,34 +11,81 @@
 <!-- Compiled and minified CSS -->
 
 <link rel="stylesheet"
-
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-
 	rel="stylesheet">
 
 </head>
 <style>
-
-.logo {
-
-	width: 100px;
-
-	margin: auto;
-
-	margin-left: -120px;
-
-	margin-top: -20px;
-
+body {
+	background-color: #7b1fa2;
 }
 
-.botao-home{
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: -120px;
+	margin-top: -20px;
+}
 
+.botao-home {
 	margin-top: 0px;
-
 	margin-right: 50px;
+}
 
+.highlight {
+	border-radius: 8px;
+	overflow: hidden;
+	background-color: #fafafa;
+	margin-top: 20px;
+}
+
+thead tr {
+	border-bottom: 2px solid #6a1b9a;
+}
+
+th {
+	color: #4a148c;
+	font-weight: bold;
+}
+
+tbody tr:hover {
+	background-color: #f3e5f5;
+}
+
+.btn-small {
+	margin: 0 4px;
+	padding: 0 10px;
+	border-radius: 4px;
+}
+
+.material-icons {
+	vertical-align: middle;
+}
+
+h1 {
+	color: white;
+}
+
+div#mensagem-agendamento {
+	color: white;
+	font-weight: bold;
+}
+
+div#cancelar-agendamento {
+	background-color: red;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+div#cancelar-agendamento:hover {
+	font-weight: bold;
+}
+
+td div a{
+	color: white
 }
 </style>
 
@@ -46,9 +93,11 @@
 
 
 
- <div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
+	<div th:replace="~{home :: menu}">
+		<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
+	</div>
 
-      
+
 
 
 
@@ -63,8 +112,9 @@
 		<h1>Lista de Agendamentos</h1>
 
 
-
-		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+		<div id="mensagem-agendamento">
+			<p th:if="${mensagem}" th:text="${mensagem}"></p>
+		</div>
 
 		<table class="highlight">
 
@@ -76,9 +126,9 @@
 
 					<th>Id</th>
 
-					<th>Data</th>
-					
 					<th>Serviço</th>
+
+					<th>Data</th>
 
 					<th>Horário</th>
 
@@ -94,20 +144,23 @@
 
 					<td th:text="${ar.id}">1</td>
 
-					<td th:text="${#temporals.format(ar.data)}">28/11/2024</td>
-					
-					<td th:text="${ar.servico.nome}">Escova</td>
+					<td><a href="@{/agendamento/{id}(id=${ar.servico.id})}"><span
+							th:text="${ar.servico.nome}">Escova</span></a></td>
+
+					<td><span th:text="${#temporals.format(ar.data)}">28/11/2024</span></td>
+
 
 					<td th:text="${ar.horario}">20:00</td>
-					
+
 					<td th:text="${ar.obs}">deu certo</td>
 
 					<td>
-					
-					<a th:href="@{/agendamento/{id}/selecionar(id=${ar.id})}"> <i class="material-icons">edit</i></a> 
 
-					<a th:href="@{/agendamento/{id}/remover(id=${ar.id})}"> <i class="material-icons">delete</i></a>
-
+						<div id="cancelar-agendamento">
+							<a th:href="@{/darlingBeauty/lista/{id}/remover(id=${ar.id})}">
+								<i>Cancelar Agendamento</i>
+							</a>
+						</div>
 					</td>
 
 
@@ -119,6 +172,61 @@
 		</table>
 
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<footer class="page-footer purple darken-2">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col l6 s12">
+
+					<h5 class="white-text" style="color: #ffffff">Darling Beauty</h5>
+
+					<p class="grey-text text-lighten-4" style="color: #ffffff">Realce
+						sua Beleza, Revele sua Confiança!</p>
+
+				</div>
+
+				<div class="col l4 offset-l2 s12">
+
+					<h5 class="white-text">Links</h5>
+
+					<ul>
+
+						<li><a class="grey-text text-lighten-3"
+							th:href="@{/darlingBeauty/login}">Login</a></li>
+
+						<li><a class="grey-text text-lighten-3"
+							th:href="@{/darlingBeauty/cadastroUsuario}">Cadastrar-se</a></li>
+
+						<li><a class="grey-text text-lighten-3"
+							th:href="@{/darlingBeauty/servicos}">Serviços</a></li>
+
+						<li><a class="grey-text text-lighten-3"
+							href="https://www.instagram.com/daarlingbeauty/">Instagram</a></li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="footer-copyright">
+
+			<div class="container">© 2024 DarlingBeauty</div>
+
+		</div>
+
+	</footer>
 
 </body>
 

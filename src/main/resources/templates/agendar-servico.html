@@ -4,67 +4,50 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <title>Agendamento - Salão de Beleza</title>
+<title>Agendamento - Salão de Beleza</title>
 
-    <link
-
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-
-        rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+	rel="stylesheet">
 
 
 
-    <style>
-
-        body {
-
-            background-color: #8e24aa;
-
-        }
-
-
-
-        .card-box {
-
-            background-color: #f3e5f5;
-
-            border-radius: 8px;
-
-            padding: 40px;
-
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-            max-width: 700px;
-
-            margin: 0 auto;
-
-            font-family: 'Roboto', sans-serif;
-
-        }
-
-
-
-        .card-box label {
-
-            color: #000000;
-
-        }
-        
-        .logo {
-
-	width: 100px;
-
-	margin: auto;
-
-	margin-left: -120px;
-
-	margin-top: -20px;
-
+<style>
+body {
+	background-color: #8e24aa;
 }
 
-    </style>
+.card-box {
+	background-color: #f3e5f5;
+	border-radius: 8px;
+	padding: 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	max-width: 700px;
+	margin: 0 auto;
+	font-family: 'Roboto', sans-serif;
+}
+
+.card-box label {
+	color: #000000;
+}
+
+.logo {
+	width: 100px;
+	margin: auto;
+	margin-left: -120px;
+	margin-top: -20px;
+}
+
+div#mensagem-agendamento{
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	
+}
+
+</style>
 
 
 
@@ -75,121 +58,113 @@
 <body>
 
 
-<div th:replace="~{home :: menu}"><a href="/" class="logo"><img class="logo" src="/logo.png"></a></div>
-    
-    <br>
+	<div th:replace="~{home :: menu}">
+		<a href="/" class="logo"><img class="logo" src="/logo.png"></a>
+	</div>
 
-    <br>
+	<br>
 
-
-
-    <div class="container">
-
-    
-
-    <p th:if="${mensagem}" th:text="${mensagem}"></p>
-
-    
-
-        <div class="card-box">
-
-            <h4 class="center">AGENDAMENTO</h4>
-
-            <br>
-
-            <form th:action="@{/agendamento}" th:method="post">
-
-             
-
-                <div class="input-field">
-
-                    <input id="data" type="date" name="data" required>
-
-                    <label for="data">Data</label>
-
-                </div>
+	<br>
 
 
 
-              
-
-                <div class="input-field">
-
-                    <input id="horario" type="time" name="horario" required>
-
-                    <label for="horario">Horário</label>
-
-                </div>
+	<div class="container">
 
 
-
-                
-
-                <div class="input-field">
-
-                    <input id="obs" type="text" name="obs">
-
-                    <label for="obs">Observações:</label>
-
-                </div>
+		<div id="mensagem-agendamento">
+			<p th:if="${mensagem}" th:text="${mensagem}"></p>
+		</div>
+		
+		
 
 
 
-               
+		<div class="card-box">
 
-                <div class="input-field">
+			<h4 class="center">AGENDAMENTO</h4>
 
-                    <select name="servico.id" required>
+			<br>
 
-                        <option value="" disabled selected>Escolha um serviço</option>
-
-                      
-
-                        <option th:each="servico : ${servicos}" 
-
-                                th:value="${servico.id}" 
-
-                                th:text="${servico.nome}">
-
-                        </option>
-
-                    </select>
-
-                    <label for="servico">Serviço</label>
-
-                </div>
+			<form th:action="@{/agendamento}" th:method="post">
 
 
 
-                
+				<div class="input-field">
 
-                <button class="btn waves-effect purple darken-3" type="submit">Agendar</button>
+					<input id="data" type="date" name="data" required> <label
+						for="data">Data</label>
 
-            </form>
-
-        </div>
-
-    </div>
+				</div>
 
 
 
-    <script
 
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script>
+				<div class="input-field">
 
-        document.addEventListener('DOMContentLoaded', function() {
+					<input id="horario" type="time" name="horario" required> <label
+						for="horario">Horário</label>
 
-          
+				</div>
 
-            var elems = document.querySelectorAll('select');
 
-            var instances = M.FormSelect.init(elems);
 
-        });
 
-    </script>
+
+				<div class="input-field">
+
+					<input id="obs" type="text" name="obs" > <label for="obs">Observações:</label>
+
+				</div>
+
+
+
+
+
+				<div class="input-field">
+
+
+					<select name="servico.id" required>
+
+						<option value="" disabled selected>Escolha um serviço</option>
+
+
+
+						<option th:each="servico : ${servicos}" th:value="${servico.id}"
+							th:text="${servico.nome}"></option>
+							
+							
+
+					</select> <label for="servico">Serviço</label>
+					
+				</div>
+
+
+
+
+
+				<button class="btn waves-effect purple darken-3" type="submit">Agendar</button>
+
+			</form>
+
+		</div>
+
+	</div>
+
+
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+
+			var elems = document.querySelectorAll('select');
+
+			var instances = M.FormSelect.init(elems);
+
+		});
+	</script>
 
 </body>
 
